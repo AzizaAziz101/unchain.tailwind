@@ -1,0 +1,14 @@
+{
+  "name": "openai-chatbot",
+  "version": "1.0.0",
+  "type": "module",
+  "scripts": {
+    "start": "vercel dev"
+  },
+  "dependencies": {
+    "openai": "^4.12.0"
+  },
+  "devDependencies": {
+    "tailwindcss": "^4.1.8"
+  }
+}
