@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8" />
+  <title>Scroll Animation mit Häkchen und Bildern</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-gray-100 text-gray-800">
+
+  <!-- Intro -->
+  <section class="min-h-screen flex items-center justify-center text-center px-6">
+    <div>
+      <h1 class="text-4xl font-bold mb-4">Willkommen auf der Testseite</h1>
+      <p class="text-lg text-gray-600">Scroll nach unten, um die Animationen mit Häkchen und Bildern zu sehen.</p>
+    </div>
+  </section>
+
+  <!-- Füllbereich -->
+  <section class="min-h-screen px-6 py-20">
+    <div class="max-w-2xl mx-auto text-center">
+      <h2 class="text-2xl font-semibold mb-4">Ein bisschen Inhalt zum Scrollen</h2>
+      <p class="text-gray-600 leading-relaxed">
+        Dieser Abschnitt enthält Platzhaltertexte. Danach folgen animierte Häkchen und Bilder.
+      </p>
+    </div>
+  </section>
+
+  <!-- Zielabschnitt mit Häkchen -->
+  <section class="bg-white py-16 px-6">
+    <div class="max-w-xl mx-auto space-y-10">
+
+      <div class="opacity-0 translate-y-4 transition-all duration-700 delay-0" data-animate>
+        <div class="flex items-start space-x-4">
+          <svg class="w-6 h-6 text-emerald-500 flex-shrink-0 mt-1" fill="none" stroke="currentColor" stroke-width="3" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7" />
+          </svg>
+          <div>
+            <h3 class="text-xl font-semibold mb-2">Qualität auf höchstem Niveau</h3>
+            <p class="text-gray-700 leading-relaxed">
+              Unsere Produkte erfüllen höchste Qualitätsstandards.
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <div class="opacity-0 translate-y-4 transition-all duration-700 delay-150" data-animate>
+        <div class="flex items-start space-x-4">
+          <svg class="w-6 h-6 text-emerald-500 flex-shrink-0 mt-1" fill="none" stroke="currentColor" stroke-width="3" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7" />
+          </svg>
+          <div>
+            <h3 class="text-xl font-semibold mb-2">Effiziente Prozesse</h3>
+            <p class="text-gray-700 leading-relaxed">
+              Transparenz und Effizienz stehen bei uns an erster Stelle.
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <div class="opacity-0 translate-y-4 transition-all duration-700 delay-300" data-animate>
+        <div class="flex items-start space-x-4">
+          <svg class="w-6 h-6 text-emerald-500 flex-shrink-0 mt-1" fill="none" stroke="currentColor" stroke-width="3" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7" />
+          </svg>
+          <div>
+            <h3 class="text-xl font-semibold mb-2">Nachhaltigkeit im Fokus</h3>
+            <p class="text-gray-700 leading-relaxed">
+              Umweltfreundliches Handeln ist uns ein zentrales Anliegen.
+            </p>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- Bilderbereich mit Scroll-Animation (nicht beschnitten, nur kleiner) -->
+  <section class="bg-gray-50 py-16 px-6">
+    <div class="max-w-6xl mx-auto flex flex-wrap justify-center gap-10">
+
+      <div class="opacity-0 translate-y-4 transition-all duration-700 delay-0" data-animate>
+        <img src="nastia.jpg" alt="Bild 1" class="w-64 h-auto rounded-xl shadow-lg hover:scale-105 transition-transform duration-300">
+      </div>
+
+      <div class="opacity-0 translate-y-4 transition-all duration-700 delay-150" data-animate>
+        <img src="ani.jpg" alt="Bild 2" class="w-64 h-auto rounded-xl shadow-lg hover:scale-105 transition-transform duration-300">
+      </div>
+
+      <div class="opacity-0 translate-y-4 transition-all duration-700 delay-300" data-animate>
+        <img src="anastasia.jpg" alt="Bild 3" class="w-64 h-auto rounded-xl shadow-lg hover:scale-105 transition-transform duration-300">
+      </div>
+
+    </div>
+  </section>
+
+  <!-- Scroll-Animation JavaScript -->
+  <script>
+    const elements = document.querySelectorAll('[data-animate]');
+
+    const observer = new IntersectionObserver((entries, observer) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          const el = entry.target;
+          el.classList.remove('opacity-0', 'translate-y-4');
+          el.classList.add('opacity-100', 'translate-y-0');
+          observer.unobserve(el);
+        }
+      });
+    }, { threshold: 0.5 });
+
+    elements.forEach(el => observer.observe(el));
+  </script>
+
+</body>
+</html>

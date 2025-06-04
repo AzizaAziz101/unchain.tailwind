@@ -106,6 +106,7 @@
     </table>
   </div>
   <br>
+  <br>
 
   <!-- Engagement-Bereich -->
   <section class="mb-10 px-4 max-w-3xl mx-auto">
@@ -117,6 +118,7 @@
       Mit unserem zuverlässigen Team und modernen Reinigungsmethoden schaffen wir hygienische Räume – effizient, umweltbewusst und mit Liebe zum Detail.
     </p>
   </section>
+  
 
   <div class="max-w-xs w-full mx-auto mb-10">
   <img
@@ -137,6 +139,7 @@
       <li>Transparente Preise ohne versteckte Kosten</li>
     </ul>
   </section>
+  <br>
 
   <!-- Chatbereich -->
   <h3 class="text-xl font-bold text-center mb-4">Stellen Sie eine Frage:</h3>
@@ -152,7 +155,7 @@
 
     <button
       id="send"
-      class="w-full bg-blue-600 hover:bg-blue-700 text-white font-semibold py-2 px-4 rounded-lg transition-colors duration-200 text-base"
+      class="w-40 mx-auto bg-blue-600 hover:bg-blue-700 text-white font-semibold py-2 px-4 rounded-lg transition-colors duration-200 text-base"
     >
       Senden
     </button>
@@ -294,6 +297,23 @@
     elements.forEach(el => observer.observe(el));
   </script>
 
+
+
+
+<script>
+  // Enter-Taste abfangen und Button auslösen
+  document.addEventListener("keydown", function(event) {
+    if (event.key === "Enter") {
+      event.preventDefault(); // optional, je nach Bedarf
+      document.getElementById("send").click();
+    }
+  });
+
+  // Beispielaktion für den Button
+  document.getElementById("send").addEventListener("click", function() {
+    alert("Senden wurde ausgelöst");
+  });
+</script>
 
 
 </body>
