@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8">
+  <title>Scroll-Trigger Eleganter Abschnitt</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    @keyframes fadeInUp {
+      0% { opacity: 0; transform: translateY(20px); }
+      100% { opacity: 1; transform: translateY(0); }
+    }
+
+    .fade-in-up {
+      animation: fadeInUp 0.6s ease-out forwards;
+    }
+  </style>
+</head>
+<body class="bg-gradient-to-b from-gray-50 to-gray-100 text-gray-800">
+
+  <!-- Header / Intro -->
+  <section class="min-h-screen flex items-center justify-center px-6 text-center">
+    <div>
+      <h1 class="text-4xl font-bold mb-4">Willkommen auf unserer Seite</h1>
+      <p class="text-lg text-gray-600">Scroll weiter nach unten, um mehr zu entdecken.</p>
+    </div>
+  </section>
+
+  <!-- Füllinhalt -->
+  <section class="min-h-screen px-6 py-20">
+    <div class="max-w-3xl mx-auto text-center">
+      <h2 class="text-2xl font-semibold mb-4">Ein paar Zwischeninfos</h2>
+      <p class="text-gray-600 leading-relaxed">Hier stehen ein paar Inhalte, damit du scrollen musst, um zum eleganten Abschnitt zu kommen. Nutze diesen Bereich für andere Texte, Bilder oder Grafiken deiner Website.</p>
+    </div>
+  </section>
+
+  <!-- Zielabschnitt mit Haken -->
+  <section id="trigger-section" class="bg-white py-16 px-6">
+    <div class="max-w-xl mx-auto text-center space-y-8">
+      <h2 class="text-2xl font-bold text-gray-800">Unsere Stärken</h2>
+
+      <div class="opacity-0 transition-opacity duration-700" data-animate>
+        <div class="flex items-start space-x-4">
+          <svg class="w-6 h-6 text-emerald-500 mt-1 flex-shrink-0" fill="none" stroke="currentColor" stroke-width="3" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7" />
+          </svg>
+          <p class="text-lg leading-relaxed text-gray-700">Verlässlichkeit in jeder Situation – auf uns ist Verlass.</p>
+        </div>
+      </div>
+
+      <div class="opacity-0 transition-opacity duration-700 delay-200" data-animate>
+        <div class="flex items-start space-x-4">
+          <svg class="w-6 h-6 text-emerald-500 mt-1 flex-shrink-0" fill="none" stroke="currentColor" stroke-width="3" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7" />
+          </svg>
+          <p class="text-lg leading-relaxed text-gray-700">Effiziente Prozesse für optimale Ergebnisse.</p>
+        </div>
+      </div>
+
+      <div class="opacity-0 transition-opacity duration-700 delay-400" data-animate>
+        <div class="flex items-start space-x-4">
+          <svg class="w-6 h-6 text-emerald-500 mt-1 flex-shrink-0" fill="none" stroke="currentColor" stroke-width="3" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7" />
+          </svg>
+          <p class="text-lg leading-relaxed text-gray-700">Nachhaltigkeit als Grundpfeiler unseres Handelns.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <script>
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          const targets = entry.target.querySelectorAll('[data-animate]');
+          targets.forEach((el, idx) => {
+            setTimeout(() => {
+              el.classList.add('fade-in-up', 'opacity-100');
+            }, idx * 150); // optionales Delay zwischen den Elementen
+          });
+          observer.unobserve(entry.target); // nur einmal auslösen
+        }
+      });
+    }, { threshold: 0.5 });
+
+    const triggerSection = document.querySelector("#trigger-section");
+    if (triggerSection) observer.observe(triggerSection);
+  </script>
+
+</body>
+</html>

@@ -159,6 +159,46 @@
   </div>
 </main>
 
+
+
+
+  <!-- Zielabschnitt mit Haken -->
+  <section id="trigger-section" class="bg-white py-16 px-6">
+    <div class="max-w-xl mx-auto text-center space-y-8">
+      <h2 class="text-2xl font-bold text-gray-800">Unsere Stärken</h2>
+
+      <div class="opacity-0 transition-opacity duration-700" data-animate>
+        <div class="flex items-start space-x-4">
+          <svg class="w-6 h-6 text-emerald-500 mt-1 flex-shrink-0" fill="none" stroke="currentColor" stroke-width="3" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7" />
+          </svg>
+          <p class="text-lg leading-relaxed text-gray-700">Verlässlichkeit in jeder Situation – auf uns ist Verlass.</p>
+        </div>
+      </div>
+
+      <div class="opacity-0 transition-opacity duration-700 delay-200" data-animate>
+        <div class="flex items-start space-x-4">
+          <svg class="w-6 h-6 text-emerald-500 mt-1 flex-shrink-0" fill="none" stroke="currentColor" stroke-width="3" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7" />
+          </svg>
+          <p class="text-lg leading-relaxed text-gray-700">Effiziente Prozesse für optimale Ergebnisse.</p>
+        </div>
+      </div>
+
+      <div class="opacity-0 transition-opacity duration-700 delay-400" data-animate>
+        <div class="flex items-start space-x-4">
+          <svg class="w-6 h-6 text-emerald-500 mt-1 flex-shrink-0" fill="none" stroke="currentColor" stroke-width="3" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7" />
+          </svg>
+          <p class="text-lg leading-relaxed text-gray-700">Nachhaltigkeit als Grundpfeiler unseres Handelns.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+  
+
 <!-- Footer -->
 <footer class="bg-blue-100 text-center py-4 mt-10 text-sm text-gray-800">
   &copy; 2025 Clean Up Berlin – Sauberkeit, auf die Sie sich verlassen können.
@@ -219,5 +259,28 @@
       chat.scrollTop = chat.scrollHeight;
     }
   </script>
+
+
+  <script>
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          const targets = entry.target.querySelectorAll('[data-animate]');
+          targets.forEach((el, idx) => {
+            setTimeout(() => {
+              el.classList.add('fade-in-up', 'opacity-100');
+            }, idx * 150); // optionales Delay zwischen den Elementen
+          });
+          observer.unobserve(entry.target); // nur einmal auslösen
+        }
+      });
+    }, { threshold: 0.5 });
+
+    const triggerSection = document.querySelector("#trigger-section");
+    if (triggerSection) observer.observe(triggerSection);
+  </script>
+
+
+
 </body>
 </html>
