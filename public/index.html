@@ -161,43 +161,58 @@
 
 
 
+  <!-- Zielabschnitt mit Animation -->
+  <section class="bg-white py-16 px-6">
+    <div class="max-w-xl mx-auto space-y-10">
 
-  <!-- Zielabschnitt mit Haken -->
-  <section id="trigger-section" class="bg-white py-16 px-6">
-    <div class="max-w-xl mx-auto text-center space-y-8">
-      <h2 class="text-2xl font-bold text-gray-800">Unsere Stärken</h2>
-
-      <div class="opacity-0 transition-opacity duration-700" data-animate>
+      <div class="opacity-0 translate-y-4 transition-all duration-700 delay-0" data-animate>
         <div class="flex items-start space-x-4">
-          <svg class="w-6 h-6 text-emerald-500 mt-1 flex-shrink-0" fill="none" stroke="currentColor" stroke-width="3" viewBox="0 0 24 24">
+          <svg class="w-6 h-6 text-emerald-500 flex-shrink-0 mt-1" fill="none" stroke="currentColor" stroke-width="3" viewBox="0 0 24 24" >
             <path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7" />
           </svg>
-          <p class="text-lg leading-relaxed text-gray-700">Verlässlichkeit in jeder Situation – auf uns ist Verlass.</p>
+          <div>
+            <h3 class="text-xl font-semibold mb-2">Qualität auf höchstem Niveau</h3>
+            <p class="text-gray-700 leading-relaxed">
+              Unsere Produkte und Dienstleistungen erfüllen höchste Qualitätsstandards. Wir legen großen Wert darauf, dass alles präzise und sorgfältig ausgeführt wird, damit du dich jederzeit auf uns verlassen kannst.
+            </p>
+          </div>
         </div>
       </div>
 
-      <div class="opacity-0 transition-opacity duration-700 delay-200" data-animate>
+      <div class="opacity-0 translate-y-4 transition-all duration-700 delay-150" data-animate>
         <div class="flex items-start space-x-4">
-          <svg class="w-6 h-6 text-emerald-500 mt-1 flex-shrink-0" fill="none" stroke="currentColor" stroke-width="3" viewBox="0 0 24 24">
+          <svg class="w-6 h-6 text-emerald-500 flex-shrink-0 mt-1" fill="none" stroke="currentColor" stroke-width="3" viewBox="0 0 24 24" >
             <path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7" />
           </svg>
-          <p class="text-lg leading-relaxed text-gray-700">Effiziente Prozesse für optimale Ergebnisse.</p>
+          <div>
+            <h3 class="text-xl font-semibold mb-2">Effiziente und transparente Prozesse</h3>
+            <p class="text-gray-700 leading-relaxed">
+              Wir optimieren unsere Abläufe kontinuierlich, damit du schnell und ohne Umwege zu den besten Ergebnissen kommst. Transparenz ist uns wichtig – du weißt immer, was gerade passiert.
+            </p>
+          </div>
         </div>
       </div>
 
-      <div class="opacity-0 transition-opacity duration-700 delay-400" data-animate>
+      <div class="opacity-0 translate-y-4 transition-all duration-700 delay-300" data-animate>
         <div class="flex items-start space-x-4">
-          <svg class="w-6 h-6 text-emerald-500 mt-1 flex-shrink-0" fill="none" stroke="currentColor" stroke-width="3" viewBox="0 0 24 24">
+          <svg class="w-6 h-6 text-emerald-500 flex-shrink-0 mt-1" fill="none" stroke="currentColor" stroke-width="3" viewBox="0 0 24 24" >
             <path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7" />
           </svg>
-          <p class="text-lg leading-relaxed text-gray-700">Nachhaltigkeit als Grundpfeiler unseres Handelns.</p>
+          <div>
+            <h3 class="text-xl font-semibold mb-2">Nachhaltigkeit im Fokus</h3>
+            <p class="text-gray-700 leading-relaxed">
+              Wir setzen auf umweltbewusstes Handeln und nachhaltige Lösungen. Für uns ist es wichtig, Verantwortung zu übernehmen und langfristig zum Schutz unserer Umwelt beizutragen.
+            </p>
+          </div>
         </div>
       </div>
+
     </div>
   </section>
 
 
-  
+
+
 
 <!-- Footer -->
 <footer class="bg-blue-100 text-center py-4 mt-10 text-sm text-gray-800">
@@ -261,23 +276,22 @@
   </script>
 
 
+  <!-- JavaScript für Scroll-Animation -->
   <script>
-    const observer = new IntersectionObserver((entries) => {
+    const elements = document.querySelectorAll('[data-animate]');
+
+    const observer = new IntersectionObserver((entries, observer) => {
       entries.forEach(entry => {
         if (entry.isIntersecting) {
-          const targets = entry.target.querySelectorAll('[data-animate]');
-          targets.forEach((el, idx) => {
-            setTimeout(() => {
-              el.classList.add('fade-in-up', 'opacity-100');
-            }, idx * 150); // optionales Delay zwischen den Elementen
-          });
-          observer.unobserve(entry.target); // nur einmal auslösen
+          const el = entry.target;
+          el.classList.remove('opacity-0', 'translate-y-4');
+          el.classList.add('opacity-100', 'translate-y-0');
+          observer.unobserve(el);
         }
       });
     }, { threshold: 0.5 });
 
-    const triggerSection = document.querySelector("#trigger-section");
-    if (triggerSection) observer.observe(triggerSection);
+    elements.forEach(el => observer.observe(el));
   </script>
 
 
