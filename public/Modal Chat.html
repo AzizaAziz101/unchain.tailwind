@@ -202,50 +202,36 @@
   </section>
   <br>
 
+  <!-- Chatbereich -->
+  <h3 class="text-xl font-bold text-center mb-4">Stellen Sie eine Frage:</h3>
+  <div class="max-w-xl mx-auto flex flex-col space-y-4">
+    <div id="chat" class="bg-white p-4 min-h-[200px] max-h-[400px] rounded-lg shadow-md overflow-y-auto space-y-3 border border-gray-200"></div>
 
-
-<!-- Floating Chat Button -->
-<button id="open-chat" class="fixed bottom-6 right-6 bg-blue-600 hover:bg-blue-700 text-white py-3 px-4 rounded-full shadow-lg text-base z-50">
-  💬 Chat öffnen
-</button>
-
-<!-- Modal Chat Window -->
-<div id="chat-modal" class="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50 hidden">
-  <div class="bg-white rounded-lg shadow-xl w-full max-w-md mx-4 p-6 relative">
-    <!-- Close Button -->
-    <button id="close-chat" class="absolute top-2 right-2 text-gray-500 hover:text-gray-800 text-xl">&times;</button>
-
-    <!-- Chat Title -->
-    <h3 class="text-xl font-bold text-center mb-4">Stellen Sie eine Frage:</h3>
-
-    <!-- Chat Box -->
-    <div id="chat" class="bg-white p-4 min-h-[200px] max-h-[300px] rounded-lg shadow-inner overflow-y-auto space-y-3 border border-gray-200 mb-4"></div>
-
-    <!-- Input Field -->
     <input
       id="input"
       type="text"
       placeholder="Schreibe deine Nachricht..."
-      class="w-full p-3 text-base border border-gray-300 rounded-lg shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-500 mb-2"
+      class="w-full p-3 text-base border border-gray-300 rounded-lg shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-500"
     />
 
-    <!-- Send Button -->
     <button
       id="send"
-      class="w-full bg-blue-600 hover:bg-blue-700 text-white font-semibold py-2 px-4 rounded-lg transition-colors duration-200 text-base"
+      class="w-40 mx-auto bg-blue-600 hover:bg-blue-700 text-white font-semibold py-2 px-4 rounded-lg transition-colors duration-200 text-base"
     >
       Senden
     </button>
   </div>
-</div>
 </main>
 
-<!-- Optional Footer -->
+
+
+
+<!-- Footer -->
 <footer class="bg-blue-100 text-center py-4 mt-10 text-sm text-gray-800">
   &copy; 2025 Clean Up Berlin – Sauberkeit, auf die Sie sich verlassen können.
 </footer>
-
-
+</body>
+</html>
 
 
 
@@ -337,66 +323,6 @@
     alert("Senden wurde ausgelöst");
   });
 </script>
-
-  <script defer>
-    document.addEventListener("DOMContentLoaded", () => {
-      const chat = document.getElementById('chat');
-      const input = document.getElementById('input');
-      const sendBtn = document.getElementById('send');
-      const openBtn = document.getElementById('open-chat');
-      const closeBtn = document.getElementById('close-chat');
-      const modal = document.getElementById('chat-modal');
-
-      openBtn.onclick = () => modal.classList.remove('hidden');
-      closeBtn.onclick = () => modal.classList.add('hidden');
-
-      sendBtn.onclick = sendMessage;
-      input.addEventListener('keydown', (e) => {
-        if (e.key === 'Enter') sendMessage();
-      });
-
-      async function sendMessage() {
-        const message = input.value.trim();
-        if (!message) return;
-
-        appendMessage('user', message);
-        input.value = '';
-        input.disabled = true;
-        sendBtn.disabled = true;
-
-        try {
-          const res = await fetch('/api/chat', {
-            method: 'POST',
-            headers: { 'Content-Type': 'application/json' },
-            body: JSON.stringify({ message }),
-          });
-
-          if (!res.ok) throw new Error('Fehler beim Server');
-
-          const data = await res.json();
-          appendMessage('bot', data.reply);
-        } catch (err) {
-          appendMessage('bot', 'Fehler: ' + err.message);
-        } finally {
-          input.disabled = false;
-          sendBtn.disabled = false;
-          input.focus();
-        }
-      }
-
-      function appendMessage(role, text) {
-        const div = document.createElement('div');
-        div.className = `p-4 rounded-lg text-base whitespace-pre-line ${
-          role === 'user'
-            ? 'bg-blue-100 text-blue-800 text-right font-semibold'
-            : 'bg-purple-100 text-purple-800 text-left'
-        }`;
-        div.textContent = (role === 'user' ? 'Du: ' : 'Bot: ') + text;
-        chat.appendChild(div);
-        chat.scrollTop = chat.scrollHeight;
-      }
-    });
-  </script>
 
 
 </body>
