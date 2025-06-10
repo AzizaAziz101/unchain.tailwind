@@ -9,3 +9,26 @@
   
 
 
+<div class="mb-10 max-w-5xl mx-auto">
+  <img
+    src="beauty929.jpg"
+    alt="Image"
+    class="rounded-2xl w-full animate-zoom-in"
+  />
+</div>
+
+
+
+@keyframes zoom-in {
+  0% {
+    opacity: 0;
+    transform: scale(0.95);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+.animate-zoom-in {
+  animation: zoom-in 0.6s ease-out forwards;
+}

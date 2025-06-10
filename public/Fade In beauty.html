@@ -6,20 +6,20 @@
   <title>Clean Up Berlin</title>
   <script src="https://cdn.tailwindcss.com"></script>
   <style>
-@keyframes fade-in-slow {
-    0% {
-      opacity: 0;
-      transform: scale(0.95);
-    }
-    100% {
-      opacity: 1;
-      transform: scale(1);
-    }
+@keyframes zoom-in {
+  0% {
+    opacity: 0;
+    transform: scale(0.95);
   }
+  100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+.animate-zoom-in {
+  animation: zoom-in 0.6s ease-out forwards;
+}
 
-  .animate-fade-in-slow {
-    animation: fade-in-slow 2.5s ease-out both;
-  }
 </style>
 </head>
 <body class="bg-white text-gray-800 text-base leading-relaxed">
@@ -54,13 +54,15 @@
     <h2 class="text-pink-500 text-2xl font-bold mb-6">luminous.s.t.u.d.i.o</h2>
   </div>
 
-<div class="mb-10 max-w-5xl mx-auto px-4">
+
+<div class="mb-10 max-w-5xl mx-auto">
   <img
     src="beauty929.jpg"
-    alt="Beautiful scene"
-    class="w-full rounded-3xl shadow-xl animate-fade-in-slow"
+    alt="Image"
+    class="rounded-2xl w-full animate-zoom-in"
   />
 </div>
+
 
 
 
