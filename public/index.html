@@ -5,6 +5,22 @@
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Clean Up Berlin</title>
   <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+@keyframes zoom-in {
+  0% {
+    opacity: 0;
+    transform: scale(0.95);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+.animate-zoom-in {
+  animation: zoom-in 0.6s ease-out forwards;
+}
+
+</style>
 </head>
 <body class="bg-white text-gray-800 text-base leading-relaxed">
 
@@ -38,13 +54,18 @@
     <h2 class="text-pink-500 text-2xl font-bold mb-6">luminous.s.t.u.d.i.o</h2>
   </div>
 
-  <div class="mb-10 max-w-5xl mx-auto">
-    <img
-      src="beauty929.jpg"
-      alt="Image"
-      class="rounded-2xl w-full"
-    />
-  </div>
+
+
+<div class="mb-10 max-w-5xl mx-auto">
+  <img
+    src="beauty929.jpg"
+    alt="Image"
+    class="rounded-2xl w-full animate-zoom-in"
+  />
+</div>
+
+
+
 
 <div class="container mx-auto px-6 md:px-10 py-6">
   <p class="mb-8 leading-relaxed">
