@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Clean Up Berlin – Impressum</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    @keyframes fadeInUp {
+      0% {
+        opacity: 0;
+        transform: translateY(30px);
+      }
+      100% {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    .animate-fadeInUp {
+      animation: fadeInUp 1.2s ease-out forwards;
+    }
+  </style>
+</head>
+<body class="bg-white text-gray-800 text-base leading-relaxed flex items-center justify-center min-h-screen p-4">
+
+  <div class="max-w-xl w-full p-4 md:p-8 animate-fadeInUp relative">
+
+    <!-- Back Button rechts oben -->
+    <a href="javascript:history.back()" class="absolute right-4 top-4 text-sm text-gray-600 flex items-center gap-1 select-none" aria-label="Zurück">
+      <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4 rotate-180" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7" />
+      </svg>
+      Zurück
+    </a>
+
+    <h1 class="text-3xl font-bold mb-6 text-center">Impressum</h1>
+
+    <p><strong>Beauty by Lina</strong><br>
+    Inhaberin: Lina Musterfrau<br>
+    Musterstraße 12<br>
+    12345 Musterstadt<br>
+    Deutschland</p>
+
+    <p class="mt-4">Telefon: 01234 / 567890<br>
+    E-Mail: <a href="mailto:kontakt@beautybylina.de" class="underline">kontakt@beautybylina.de</a><br>
+    Website: <a href="https://www.beautybylina.de" class="underline">www.beautybylina.de</a></p>
+
+    <p class="mt-4"><strong>Umsatzsteuer-ID:</strong><br>
+    DE123456789</p>
+
+    <p class="mt-4"><strong>Verantwortlich für den Inhalt nach § 55 Abs. 2 RStV:</strong><br>
+    Lina Musterfrau<br>
+    Musterstraße 12<br>
+    12345 Musterstadt</p>
+  </div>
+
+</body>
+</html>
