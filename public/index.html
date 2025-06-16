@@ -5,6 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Clean Up Berlin</title>
   <script src="https://cdn.tailwindcss.com"></script>
+  <script src="https://unpkg.com/scrollreveal"></script>
   <style>
 @keyframes fade-in-slow {
     0% {
@@ -33,9 +34,6 @@
     <div class="flex items-center gap-6 text-pink-500 font-medium text-sm">
       <a href="tel:+49 345 00000" class="flex items-center gap-2">
         <span class="text-base">Call us:</span>
-        <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6 ml-1" viewBox="0 0 24 24" fill="currentColor">
-          <path d="M6.62 10.79a15.053 15.053 0 006.59 6.59l2.2-2.2a1 1 0 011.11-.21c1.21.49 2.53.76 3.88.76a1 1 0 011 1v3.5a1 1 0 01-1 1C10.07 21.5 2.5 13.93 2.5 4a1 1 0 011-1h3.5a1 1 0 011 1c0 1.35.26 2.67.76 3.88a1 1 0 01-.21 1.11l-2.2 2.2z"/>
-        </svg>
         <span class="text-sm">+49 300 00000</span>
       </a>
     </div>
@@ -69,24 +67,24 @@
 
 
 <div class="container mx-auto px-6 md:px-10 py-6">
-  <p class="mb-8 leading-relaxed">
+  <p class="mb-8 leading-relaxed text-lg">
     At Luminous, we enhance your natural beauty with expert services in tooth gems, whitening, and lash styling — all delivered with precision and care.
   </p>
-  <p class="mb-10 leading-relaxed">
+  <p class="mb-10 leading-relaxed text-lg">
     We’re passionate about helping you feel confident and radiant, using high-quality materials and safe, trend-forward techniques.
   </p>
 
-  <h3 class="text-xl font-bold mb-6">Why Luminous?</h3>
-  <p class="mb-10 leading-relaxed">
+  <h3 class="text-2xl font-bold mb-6">Why Luminous?</h3>
+  <p class="mb-10 leading-relaxed text-lg">
     Our mission is to boost your confidence through modern beauty treatments tailored to your unique style. Whether you're adding a sparkling tooth gem, brightening your smile, or enhancing your lashes, we create results that stand out.
   </p>
-  <p class="mb-12 leading-relaxed">
+  <p class="mb-12 leading-relaxed text-lg">
     At Luminous, we combine expertise with artistry, offering flexible appointments, gentle products, and a comfortable experience every time. Your glow-up starts here.
   </p>
 </div>
 
 <!-- Tabelle -->
-<div class="overflow-x-auto max-w-3xl mx-auto">
+<div class="overflow-x-auto max-w-3xl mx-auto text-lg">
   <table class="w-full table-auto border-2 border-blue-200 rounded-2xl bg-white shadow-sm" style="border-collapse: separate;">
     <thead class="bg-blue-100">
       <tr>
@@ -116,11 +114,10 @@
 </div>
 <br>
 
-<!-- Zielabschnitt mit Animation -->
-<section class="bg-white py-8 px-6">
+<section class="bg-white py-8 px-6 text-lg">
   <div class="max-w-xl mx-auto space-y-10">
 
-    <div class="opacity-0 translate-y-4 transition-all duration-700 delay-0" data-animate>
+    <div class="opacity-0 translate-x-[-80px] transition-all duration-[1000ms] ease-[cubic-bezier(0.25,1,0.5,1)] delay-0 from-left" data-animate>
       <div class="flex items-start space-x-4">
         <svg class="w-6 h-6 text-emerald-500 flex-shrink-0 mt-1" fill="none" stroke="currentColor" stroke-width="3" viewBox="0 0 24 24">
           <path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7" />
@@ -134,7 +131,7 @@
       </div>
     </div>
 
-    <div class="opacity-0 translate-y-4 transition-all duration-700 delay-150" data-animate>
+    <div class="opacity-0 translate-x-[80px] transition-all duration-[1000ms] ease-[cubic-bezier(0.25,1,0.5,1)] delay-150 from-right" data-animate>
       <div class="flex items-start space-x-4">
         <svg class="w-6 h-6 text-emerald-500 flex-shrink-0 mt-1" fill="none" stroke="currentColor" stroke-width="3" viewBox="0 0 24 24">
           <path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7" />
@@ -148,15 +145,15 @@
       </div>
     </div>
 
-    <div class="opacity-0 translate-y-4 transition-all duration-700 delay-300" data-animate>
+    <div class="opacity-0 translate-x-[-80px] transition-all duration-[1000ms] ease-[cubic-bezier(0.25,1,0.5,1)] delay-300 from-left" data-animate>
       <div class="flex items-start space-x-4">
         <svg class="w-6 h-6 text-emerald-500 flex-shrink-0 mt-1" fill="none" stroke="currentColor" stroke-width="3" viewBox="0 0 24 24">
           <path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7" />
         </svg>
         <div>
-          <h3 class="text-xl font-semibold mb-2">Sustainability Matters</h3>
+          <h3 class="text-xl font-semibold mb-2">Consistent Support</h3>
           <p class="text-gray-700 leading-relaxed">
-            We strive to minimize waste and use eco-friendly products wherever possible, because beauty shouldn’t come at the planet’s expense.
+            Our team is here for you before, during, and after your visit. Count on us to answer questions, offer guidance, and ensure a stress-free experience.
           </p>
         </div>
       </div>
@@ -164,6 +161,8 @@
 
   </div>
 </section>
+
+
 
 </main>
 
@@ -181,25 +180,80 @@
 </section>
 
 
-<div class="bg-blue-100 py-5 mb-20 min-h-[400px]">
+<div class="bg-blue-100 py-5 mb-20 min-h-[425px]">
   <div class="relative max-w-xs w-full mx-auto h-auto">
     <!-- Unteres Bild -->
     <img
-      src="teethsgem.jpg"
+      src="firstclassNails.jpg"
       alt="Image Shadow"
-      class="rounded-2xl w-full h-auto
-             block mb-4 md:absolute md:top-20 md:left-20 md:mb-0"
+      class="rounded-2xl w-full h-[300px] object-cover
+             block mb-4 md:absolute md:top-20 md:left-32 md:mb-0"
     />
     <!-- Oberes Bild -->
     <img
-      src="teethsgemx.jpg"
+      src="mirrorNails.jpg"
       alt="Main Image"
-      class="rounded-2xl w-full h-auto z-10
-             block md:relative md:-left-20"
+      class="rounded-2xl w-full h-[300px] object-cover z-10
+             block md:relative md:-left-32"
     />
   </div>
 </div>
 
+
+
+
+
+<section class="max-w-6xl mx-auto py-16 space-y-24">
+
+  <!-- Block 1 -->
+  <div class="flex flex-col md:flex-row items-center gap-8">
+    <div class="w-full md:w-[40%] max-w-[400px] aspect-[4/3]">
+      <img src="teethsgemx.jpg" alt="Bild 1"
+           class="w-full h-full object-cover rounded-xl shadow-xl scroll-img-left">
+    </div>
+    <div class="md:w-[60%] scroll-text-right">
+      <h2 class="text-2xl font-bold mb-3">Our Commitment to Beauty</h2>
+      <p class="text-base text-gray-600 leading-normal">
+        At Luminous, <strong>you</strong> are our priority.  
+        We believe that true beauty begins with confidence – and confidence begins with care.  
+        Every experience we create starts with you in mind.
+      </p>
+    </div>
+  </div>
+
+  <!-- Block 2 -->
+  <div class="flex flex-col md:flex-row-reverse items-center gap-8">
+    <div class="w-full md:w-[40%] max-w-[400px] aspect-[4/3]">
+      <img src="paintNails.jpg" alt="Bild 2"
+           class="w-full h-full object-cover rounded-xl shadow-xl scroll-img-right">
+    </div>
+    <div class="md:w-[60%] scroll-text-left">
+      <h2 class="text-2xl font-bold mb-3">Confidence Through Innovation</h2>
+      <p class="text-base text-gray-600 leading-normal">
+        With a reliable team and modern treatments,  
+        we provide results that are <strong>hygienic</strong>, <strong>effective</strong>, and <strong>radiant</strong>.  
+        Our focus is on professional care, always adapted to your unique needs.
+      </p>
+    </div>
+  </div>
+
+  <!-- Block 3 -->
+  <div class="flex flex-col md:flex-row items-center gap-8">
+    <div class="w-full md:w-[40%] max-w-[400px] aspect-[4/3]">
+      <img src="beauty.jpg" alt="Bild 3"
+           class="w-full h-full object-cover rounded-xl shadow-xl scroll-img-left">
+    </div>
+    <div class="md:w-[60%] scroll-text-right">
+      <h2 class="text-2xl font-bold mb-3">Beauty with Intention</h2>
+      <p class="text-base text-gray-600 leading-normal">
+        We treat beauty with purpose – always <strong>consciously</strong>,  
+        always with a <strong>touch of glam</strong>.  
+        Because when you feel beautiful, you shine from within – and that’s what truly matters.
+      </p>
+    </div>
+  </div>
+
+</section>
 
 
 
@@ -343,23 +397,30 @@
   </script>
 
 
-  <!-- JavaScript für Scroll-Animation -->
-  <script>
-    const elements = document.querySelectorAll('[data-animate]');
+<script>
+  const elements = document.querySelectorAll('[data-animate]');
 
-    const observer = new IntersectionObserver((entries, observer) => {
-      entries.forEach(entry => {
-        if (entry.isIntersecting) {
-          const el = entry.target;
-          el.classList.remove('opacity-0', 'translate-y-4');
-          el.classList.add('opacity-100', 'translate-y-0');
-          observer.unobserve(el);
+  const observer = new IntersectionObserver((entries, observer) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        const el = entry.target;
+        el.classList.remove('opacity-0');
+
+        if (el.classList.contains('from-left')) {
+          el.classList.remove('translate-x-[-40px]');
+        } else if (el.classList.contains('from-right')) {
+          el.classList.remove('translate-x-[40px]');
         }
-      });
-    }, { threshold: 0.5 });
 
-    elements.forEach(el => observer.observe(el));
-  </script>
+        el.classList.add('opacity-100', 'translate-x-0');
+        observer.unobserve(el);
+      }
+    });
+  }, { threshold: 0.5 });
+
+  elements.forEach(el => observer.observe(el));
+</script>
+
 
 
 
@@ -461,6 +522,57 @@
     setTimeout(() => {
       modal.classList.add("pointer-events-none");
     }, 300);
+  });
+</script>
+
+
+
+
+
+
+<script src="https://unpkg.com/scrollreveal"></script>
+<script>
+  // Bild fliegt von links ein (sofort)
+  ScrollReveal().reveal('.scroll-img-left', {
+    origin: 'left',
+    distance: '100px',
+    duration: 1000,
+    easing: 'ease-out',
+    opacity: 0,
+    reset: false
+  });
+
+  // Bild fliegt von rechts ein (sofort)
+  ScrollReveal().reveal('.scroll-img-right', {
+    origin: 'right',
+    distance: '100px',
+    duration: 1000,
+    easing: 'ease-out',
+    opacity: 0,
+    reset: false
+  });
+
+  // Text erscheint leicht verzögert (nach Bild), mit leichtem "Pop"-Effekt
+  ScrollReveal().reveal('.scroll-text-right', {
+    origin: 'bottom',
+    distance: '40px',
+    duration: 800,
+    delay: 500,
+    easing: 'ease-out',
+    opacity: 0,
+    scale: 0.95,
+    reset: false
+  });
+
+  ScrollReveal().reveal('.scroll-text-left', {
+    origin: 'bottom',
+    distance: '40px',
+    duration: 800,
+    delay: 500,
+    easing: 'ease-out',
+    opacity: 0,
+    scale: 0.95,
+    reset: false
   });
 </script>
 
